@@ -1,0 +1,14 @@
+{
+    "buttonSend": {
+      "label": "Pošalji"
+    },
+    "metadata": {
+      "title": "Elatus Rent a Car",
+      "template": "%s - Elatus Rent a Car",
+      "description": "Elatus Rent a Car template website na hrvatskom jeziku"
+    },
+      "notfound": {
+          "title": "Stranica nije pronađena!",
+          "message": "Stranica koju tražite ne postoji."
+      }
+  }

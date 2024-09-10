@@ -1,0 +1,14 @@
+{
+    "buttonSend": {
+      "label": "Send"
+    },
+    "metadata": {
+      "title": "Elatus Rent a Car",
+      "template": "%s - Elatus Rent a Car",
+      "description": "Elatus Rent a Car template website"
+    },
+    "notfound": {
+      "title": "Page not found!",
+      "message": "The page you are looking for does not exist."
+    }
+  }
