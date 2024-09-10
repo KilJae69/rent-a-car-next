@@ -1,37 +1,20 @@
-"use client";
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectFade, Autoplay } from "swiper/modules";
+import dynamic from "next/dynamic";
 
-import "swiper/css";
-import "swiper/css/effect-fade";
+import HeroSlide, { dummySlideData } from "@/components/homepage/components/hero-slide";
 
-type SlideComponent = {
-  id: number;
-  element: React.ReactNode;
-};
-type HeroSectionProps = {
-  slides: SlideComponent[];
-};
-export default function HeroSection({ slides }: HeroSectionProps) {
+// Dynamically import the HeroSlider, with SSR disabled
+const HeroSlider = dynamic(() => import("./components/hero-slider"), {
+  ssr: false, // Disable SSR for client component
+});
+
+export default function HeroSection() {
   return (
     <section className="mx-auto h-[590px] max-w-[1675px] overflow-hidden md:rounded-b-lg lg:h-[665px] 3xl:max-w-[1870px]">
-      <Swiper
-        modules={[EffectFade, Autoplay]}
-        effect="fade"
-        autoplay={{
-          delay: 8000,
-          disableOnInteraction: false,
-        }}
-        slidesPerView={1}
-        slidesPerGroup={1}
-        spaceBetween={0}
-        className="relative h-full"
-      >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>{slide.element}</SwiperSlide>
+      <HeroSlider>
+        {dummySlideData.map((slide) => (
+          <HeroSlide key={slide.id} item={slide} priority={slide.id === 1} />
         ))}
-      </Swiper>
+      </HeroSlider>
     </section>
   );
 }

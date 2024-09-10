@@ -9,7 +9,7 @@ type SlideData = {
   title: string;
   description: string;
 };
-const dummyData: SlideData[] = [
+export const dummySlideData: SlideData[] = [
   {
     id: 1,
     imageSrc: rotator1,
@@ -65,7 +65,4 @@ const HeroSlide: React.FC<SlideProps> = ({ item, priority }) => {
 
 export default HeroSlide;
 
-export const slideComponents = dummyData.map((slide, index) => ({
-  id: slide.id,
-  element: <HeroSlide key={slide.id} item={slide} priority={index === 0} />,
-}));
+
