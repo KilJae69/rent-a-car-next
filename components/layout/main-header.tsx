@@ -11,6 +11,8 @@ import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 
 import { ChevronRight } from "lucide-react";
+import { useLocale } from "next-intl";
+import { langItems } from "@/constants/data";
 
 const DynamicDesktopNav = dynamic(() => import("./helpers/desktop-nav"), {
   ssr: false, // Disable SSR for client-side only component
@@ -84,8 +86,13 @@ export default function MainHeader() {
 }
 
 // Simple static placeholder for the initial nav
+export function getItemByLocale(locale: string) {
+  return langItems.find((item) => item.code === locale);
+}
 
 function StaticNavPlaceholder() {
+  const currentLocale = useLocale();
+  const currentItem = getItemByLocale(currentLocale);
   return (
     <div className="hidden items-center lg:flex">
       <nav>
@@ -137,7 +144,7 @@ function StaticNavPlaceholder() {
             </li>
             <li>
               <button className="group mt-0 flex h-full w-max flex-col items-center justify-center rounded-none border-l border-gray-200 bg-background p-4 py-2 text-sm font-medium  focus:outline-none dark:border-gray-700 2xl:py-[30px]">
-                <div className="mt-5 text-sm font-bold">Croatian</div>
+                <div className="mt-5 text-sm font-bold">{currentItem?.title}</div>
 
                 <ChevronRight className="relative top-px ml-1 size-5 rotate-90" />
               </button>
