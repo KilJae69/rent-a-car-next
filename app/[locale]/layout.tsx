@@ -5,7 +5,7 @@ import { Poppins } from "next/font/google";
 import { locales } from "@/config/navigation";
 import { Providers } from "@/providers";
 import MainHeader from "@/components/layout/main-header";
-import MobileMenu from "@/components/layout/mobile-menu";
+
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,7 +29,7 @@ export default function Layout({
       <body className={`${poppins.variable}`}>
         <Providers>
           <MainHeader />
-          <MobileMenu />
+          
           <main className="h-[3000px]">{children}</main>
         </Providers>
       </body>

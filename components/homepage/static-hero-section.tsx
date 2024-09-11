@@ -11,14 +11,12 @@ export default function StaticHeroSection() {
           alt={"Hero Image"}
           className="absolute left-0 top-0 z-0 size-full object-cover"
           priority
-          placeholder="blur"
           sizes="
           (min-width: 1940px) 1870px,
           (min-width: 1780px) 1675px,
           (min-width: 380px) calc(93.84vw + 23px),
           calc(66.67vw + 100px)
            "
-          fill={true}
         />
         <div className="relative z-10 mx-auto flex size-full max-w-[1200px] flex-col items-center justify-end text-center text-white">
           <h2 className="pb-4 text-2xl font-bold lg:text-4xl 2xl:text-5xl">

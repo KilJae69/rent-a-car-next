@@ -48,7 +48,7 @@ export default function MobileMenu() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <m.div
-            className="fixed top-[75px] z-40 h-full w-full bg-gradient-to-br from-secondary to-secondary-dark lg:hidden"
+            className="fixed top-[75px] left-0 z-40 h-full w-full bg-gradient-to-br from-secondary to-secondary-dark lg:hidden"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -50 }}
