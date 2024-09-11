@@ -4,9 +4,12 @@ import { unstable_setRequestLocale } from "next-intl/server";
 import { Poppins } from "next/font/google";
 import { locales } from "@/config/navigation";
 import { Providers } from "@/providers";
+
+// import { header } from "framer-motion/client";
+// import layout from "../layout";
 // import MainHeader from "@/components/layout/main-header";
 import StaticHeader from "@/components/layout/static-header";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -14,10 +17,10 @@ const poppins = Poppins({
   variable: "--font-poppins",
 });
 
-const DynamicHeader = dynamic(() => import("@/components/layout/main-header"), {
-  ssr: false,
-  loading: () => <StaticHeader />,
-});
+// const DynamicHeader = dynamic(() => import("@/components/layout/main-header"), {
+//   ssr: false,
+//   loading: () => <StaticHeader />,
+// });
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -34,8 +37,8 @@ export default function Layout({
     <html lang={locale}>
       <body className={`${poppins.variable}`}>
         <Providers>
-          <DynamicHeader />
-
+          {/* <DynamicHeader /> */}
+          <StaticHeader/>
           <main className="h-[3000px]">{children}</main>
         </Providers>
       </body>
