@@ -1,5 +1,17 @@
 import { useState, useEffect, useRef } from "react";
-import { throttle } from "lodash";
+
+
+const throttle = (func: (...args: unknown[]) => void, delay: number) => {
+  let lastCall = 0;
+  return (...args: unknown[]) => {
+    const now = new Date().getTime();
+    if (now - lastCall < delay) {
+      return;
+    }
+    lastCall = now;
+    return func(...args);
+  };
+};
 
 const useScrolled = (throttleDelay: number = 200) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
