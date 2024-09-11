@@ -5,6 +5,7 @@ import useScrolled from "@/hooks/useScrolled";
 import HeaderLogo from "./helpers/header-logo";
 import { useBoundStore } from "@/store/store";
 import DesktopNav from "./helpers/desktop-nav";
+import MobileMenuToggle from "./helpers/MobileMenuToggle";
 
 export default function MainHeader() {
     const { isScrolled, isScrollingDown } = useScrolled(100);
@@ -38,8 +39,8 @@ export default function MainHeader() {
         {/* </div> */}
       </div>
       <div className="flex h-full items-center gap-4 lg:hidden">
-        {/* <ReservationWidgetToggle />
-        <MobileMenuToggle /> */}
+        {/* <ReservationWidgetToggle /> */}
+        <MobileMenuToggle /> 
       </div>
     </div>
   </header>
