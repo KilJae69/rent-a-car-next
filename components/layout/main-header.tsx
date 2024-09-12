@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import useScrolled from "@/hooks/useScrolled";
 import HeaderLogo from "./helpers/header-logo";
 import { useBoundStore } from "@/store/store";
-// import DesktopNav from "./helpers/desktop-nav";
 import MobileMenuToggle from "./helpers/MobileMenuToggle";
 
 import dynamic from "next/dynamic";
@@ -51,6 +50,7 @@ export default function MainHeader() {
               isScrollingDown && !isMobileMenuOpen && !isReservationWidgetOpen,
           }
         )}
+        onMouseEnter={() => setIsNavVisible(true)}
       >
         <div
           className={cn(
@@ -63,7 +63,7 @@ export default function MainHeader() {
           <HeaderLogo isScrolled={isScrolled} />
           <div
             className="hidden items-center lg:flex"
-            onMouseEnter={() => setIsNavVisible(true)} // Load DesktopNav on hover
+             // Load DesktopNav on hover
           >
             {/* Static Nav Placeholder */}
             {!isNavVisible && <StaticNavPlaceholder />}

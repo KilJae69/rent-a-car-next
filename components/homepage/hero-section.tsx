@@ -6,7 +6,8 @@ import HeroSlide, {
 } from "@/components/homepage/components/hero-slide";
 
 import StaticHeroSection from "./static-hero-section";
-import useScrolled from "@/hooks/useScrolled";
+
+import { useState } from "react";
 
 // Dynamically import the HeroSlider, with SSR disabled
 const DynamicHeroSlider = dynamic(() => import("./components/hero-slider"), {
@@ -15,14 +16,16 @@ const DynamicHeroSlider = dynamic(() => import("./components/hero-slider"), {
 });
 
 export default function HeroSection() {
-  const { isScrolled } = useScrolled(100);
+  const [isSwiper, setIsSwiper] = useState(false);
   return (
     <section
+    onMouseEnter={() => setIsSwiper(true)}
+    onClick={() => setIsSwiper(true)}
       className="mx-auto h-[590px] max-w-[1675px] overflow-hidden md:rounded-b-lg lg:h-[665px] 3xl:max-w-[1870px]"
       
     >
-      {!isScrolled && <StaticHeroSection />}
-      {isScrolled && (
+      {!isSwiper && <StaticHeroSection />}
+      {isSwiper && (
         <DynamicHeroSlider>
           {dummySlideData.map((slide) => (
             <HeroSlide key={slide.id} item={slide} priority={slide.id === 1} />
